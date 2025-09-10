@@ -17,7 +17,11 @@ Takina *makeNew(char u[], int s){
 }
 Takina *addLast(char u[], int s, Takina *root){
     if(root == NULL) return makeNew(u, s);
-    root->next = addLast(u, s, root->next);
+    Takina *t = root;
+    while(t->next != NULL){
+        t = t->next;
+    }
+    t->next = makeNew(u, s);
     return root;
 }
 void printQueue(Takina *root){
